@@ -1,3 +1,4 @@
+CXX = g++
 GTEST_DIR = ../gtest
 CPPFLAGS += -isystem $(GTEST_DIR)/include -I include
 CXXFLAGS = -g -Wall -Wextra -pthread
