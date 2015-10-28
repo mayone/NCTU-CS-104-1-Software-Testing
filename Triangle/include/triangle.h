@@ -1,10 +1,19 @@
-#ifndef GTEST_SAMPLES_TRIANGLE_H_
-#define GTEST_SAMPLES_TRIANGLE_H_
+#ifndef __TRIANGLE_H__
+#define __TRIANGLE_H__
 
-// Returns n! (the factorial of n).  For negative n, n! is defined to be 1.
-int Factorial(int n);
+const int LOWER_BOUND = 1;
+const int UPPER_BOUND = 200;
+const int VALID_VALUE = UPPER_BOUND / 2;
 
-// Returns true iff n is a prime number.
-bool IsPrime(int n);
+enum TriangleType {
+	EQUILATERAL,
+	ISOSCELES,
+	SCALENE,
+	NOT_A_TRIANGLE,
+	OUT_OF_RANGE
+};
 
-#endif  // GTEST_SAMPLES_TRIANGLE_H_
+// Returns type of the triangle
+TriangleType Triangle(int a, int b, int c);
+
+#endif  // __TRIANGLE_H__
