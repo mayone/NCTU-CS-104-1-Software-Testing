@@ -2,7 +2,7 @@ CXX = g++
 TITLE = triangle
 GTEST_DIR = ../gtest
 CPPFLAGS += -isystem $(GTEST_DIR)/include -I include
-CXXFLAGS = -g -Wall -Wextra -pthread
+CXXFLAGS += -g -Wall -Wextra -pthread
 LDFLAGS = -lpthread
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 		$(GTEST_DIR)/include/gtest/internal/*.h

@@ -1,9 +1,16 @@
 #ifndef __NEXTDATE_H__
 #define __NEXTDATE_H__
 
+inline bool isLeapYear(int year);
+
 const int YEAR_LOWER = 1812;
 const int YEAR_VALID = 1993;
 const int YEAR_UPPER = 2012;
+const int MONTH_LOWER = 1;
+const int MONTH_UPPER = 12;
+const int DAY_LOWER = 1;
+inline int DAY_UPPER(int year, int month);
+
 
 class Date {
 public:
@@ -20,9 +27,9 @@ public:
 	int month;
 	int day;
 };
-static Date invalidDate;
+const Date invalidDate;
 
 // Returns next date of the date
-Date NextDate(const Date &today);
+Date NextDate(const Date &date);
 
 #endif  // __NEXTDATE_H__
