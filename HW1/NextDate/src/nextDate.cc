@@ -71,10 +71,9 @@ Date NextDate(const Date &date)
 	}
 	else {
 		nextDate.year = date.year;
-		nextDate.month = date.month + 1;
+		nextDate.month = date.month;
 		nextDate.day = date.day + 1;
 	}
-
 
 	return nextDate;
 }

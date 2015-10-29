@@ -11,7 +11,6 @@ const int MONTH_UPPER = 12;
 const int DAY_LOWER = 1;
 inline int DAY_UPPER(int year, int month);
 
-
 class Date {
 public:
 	Date(int year = 0, int month = 0, int day = 0)
@@ -28,6 +27,11 @@ public:
 	int day;
 };
 const Date invalidDate;
+
+inline bool EQUAL(const Date &lhs, const Date &rhs)
+{
+	return lhs == rhs;
+}
 
 // Returns next date of the date
 Date NextDate(const Date &date);
