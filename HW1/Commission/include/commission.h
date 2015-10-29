@@ -1,12 +1,12 @@
 #ifndef __COMMISSION_H__
 #define __COMMISSION_H__
 
-const int LOWER_BOUND = 1;
-const int UPPER_BOUND = 200;
-const int VALID_VALUE = UPPER_BOUND / 2;
+const int lockPrice = 45;
+const int stockPrice = 30;
+const int barrelPrice = 25;
 
 
-// Returns ...
-//func()
+// Returns the commission
+float Commission(int locks, int stocks, int barrels);
 
 #endif  // __COMMISSION_H__
