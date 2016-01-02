@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include "triangle.h"
 #include "gtest/gtest.h"
 
@@ -51,5 +52,23 @@ TEST(TriangleTest, MCDC_Coverage) {
 
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);
+	if (argc > 1) {
+		switch (atoi(argv[1])) {
+			case 0:
+				::testing::GTEST_FLAG(filter) = "*.C0_Coverage";
+				break;
+			case 1:
+				::testing::GTEST_FLAG(filter) = "*.C1_Coverage";
+				break;
+			case 2:
+				::testing::GTEST_FLAG(filter) = "*.C2_Coverage";
+				break;
+			case 3:
+				::testing::GTEST_FLAG(filter) = "*.MCDC_Coverage";
+				break;
+			default:
+				break;
+		}
+	}
 	return RUN_ALL_TESTS();
 }

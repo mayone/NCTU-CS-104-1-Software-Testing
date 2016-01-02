@@ -37,19 +37,22 @@ obj/%_unittest.o: test/%_unittest.cc $(DEPS) $(GTEST_HEADERS)
 bin/%_unittest: obj/%.o obj/%_unittest.o $(GTEST_DIR)/lib/gtest_main.a
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^
 
-.PHONY: run clean
+.PHONY: run coverage clean
+
 run:
 	bin/$(TITLE)_unittest
+
 coverage:
 	rm -rf cov
 	mkdir cov
 	gcov -b -o obj src/triangle.cc
 	mv *.gcov cov
+
 clean:
 	rm -rf $(GTEST_DIR)/obj/*.o
 	rm -rf $(GTEST_LIBS)
 	rm -rf cov
-	rm -rf obj/*.gcno
 	rm -rf obj/*.gcda
+	rm -rf obj/*.gcno
 	rm -rf obj/*.o
 	rm -rf bin/$(TITLE)_unittest
