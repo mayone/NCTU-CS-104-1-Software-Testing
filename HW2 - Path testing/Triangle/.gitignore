@@ -1,0 +1,5 @@
+/cov
+/obj/*.gcda
+/obj/*.gcno
+/obj/*.o
+/bin/triangle_unittest
