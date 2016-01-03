@@ -1,7 +1,7 @@
 CXX = g++
 TITLE = triangle
 GTEST_DIR = ../gtest
-CXXFLAGS += -isystem $(GTEST_DIR)/include -I include \
+CXXFLAGS = -isystem $(GTEST_DIR)/include -I include \
 		-g -Wall -Wextra -fprofile-arcs -ftest-coverage
 LDFLAGS = -lpthread
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
@@ -45,7 +45,7 @@ run:
 coverage:
 	rm -rf cov
 	mkdir cov
-	gcov -b -o obj src/triangle.cc
+	gcov -b -o obj src/$(TITLE).cc
 	mv *.gcov cov
 
 clean:
