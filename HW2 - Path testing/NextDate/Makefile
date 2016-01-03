@@ -49,6 +49,7 @@ coverage:
 	mv *.gcov cov
 
 clean:
+	rm -rf $(GTEST_DIR)/obj/*.gcda
 	rm -rf $(GTEST_DIR)/obj/*.o
 	rm -rf $(GTEST_LIBS)
 	rm -rf cov
