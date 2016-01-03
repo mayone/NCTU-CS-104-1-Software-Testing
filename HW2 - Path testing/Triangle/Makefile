@@ -50,6 +50,7 @@ coverage:
 
 clean:
 	rm -rf $(GTEST_DIR)/obj/*.gcda
+	rm -rf $(GTEST_DIR)/obj/*.gcno
 	rm -rf $(GTEST_DIR)/obj/*.o
 	rm -rf $(GTEST_LIBS)
 	rm -rf cov

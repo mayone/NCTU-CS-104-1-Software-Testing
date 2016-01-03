@@ -1,3 +1,4 @@
 obj/*.gcda
+obj/*.gcno
 obj/*.o
 lib/*.a
