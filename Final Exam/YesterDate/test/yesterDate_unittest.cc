@@ -2,35 +2,34 @@
 #include "yesterDate.h"
 #include "gtest/gtest.h"
 
-// Robust Boundary Value Testing
-TEST(YesterDateTest, BoundaryValue_Robust) {
+// Normal Boundary Value Testing
+TEST(YesterDateTest, BoundaryValue_Normal) {
 	// Tests year
-	EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_LOWER-1, 8, 25))));
-	EXPECT_TRUE(EQUAL(Date(YEAR_LOWER, 8, 24), YesterDate(Date(YEAR_LOWER, 8, 25))));
+	//EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_LOWER-1, 8, 25))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_LOWER, 8, 24), YesterDate(Date(YEAR_LOWER, 8, 25))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_LOWER+1, 8, 24), YesterDate(Date(YEAR_LOWER+1, 8, 25))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 8, 24), YesterDate(Date(YEAR_VALID, 8, 25))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_UPPER-1, 8, 24), YesterDate(Date(YEAR_UPPER-1, 8, 25))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_UPPER, 8, 24), YesterDate(Date(YEAR_UPPER, 8, 25))));
-	EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_UPPER+1, 8, 25))));
+	//EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_UPPER+1, 8, 25))));
 	// Tests month
-	EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_VALID, 0, 25))));
+	//EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_VALID, 0, 25))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 1, 24), YesterDate(Date(YEAR_VALID, 1, 25))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 2, 24), YesterDate(Date(YEAR_VALID, 2, 25))));
-	EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 8, 24), YesterDate(Date(YEAR_VALID, 8, 25))));
+	//EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 8, 24), YesterDate(Date(YEAR_VALID, 8, 25))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 11, 24), YesterDate(Date(YEAR_VALID, 11, 25))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 12, 24), YesterDate(Date(YEAR_VALID, 12, 25))));
-	EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_VALID, 13, 25))));
+	//EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_VALID, 13, 25))));
 	// Tests day
-	EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_VALID, 8, 0))));
+	//EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_VALID, 8, 0))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 7, 31), YesterDate(Date(YEAR_VALID, 8, 1))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 8, 1), YesterDate(Date(YEAR_VALID, 8, 2))));
-	EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 8, 14), YesterDate(Date(YEAR_VALID, 8, 15))));
+	//EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 8, 24), YesterDate(Date(YEAR_VALID, 8, 25))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 8, 29), YesterDate(Date(YEAR_VALID, 8, 30))));
 	EXPECT_TRUE(EQUAL(Date(YEAR_VALID, 8, 30), YesterDate(Date(YEAR_VALID, 8, 31))));
-	EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_VALID, 8, 32))));
-	EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_VALID, 6, 31))));
-	EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_VALID, 2, 30))));
+	//EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_VALID, 8, 32))));
+	//EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_VALID, 6, 31))));
+	//EXPECT_TRUE(EQUAL(invalidDate, YesterDate(Date(YEAR_VALID, 2, 30))));
 }
 
 // Decision Table-Based Testing
@@ -44,9 +43,11 @@ TEST(YesterDateTest, DecisionTable) {
 	EXPECT_TRUE(EQUAL(Date(2001, 1, 14), YesterDate(Date(2001, 1, 15))));
 	EXPECT_TRUE(EQUAL(Date(2001, 1, 30), YesterDate(Date(2001, 1, 31))));
 
+	EXPECT_TRUE(EQUAL(Date(2001, 11, 30), YesterDate(Date(2001, 12, 1))));
 	EXPECT_TRUE(EQUAL(Date(2001, 12, 14), YesterDate(Date(2001, 12, 15))));
 	EXPECT_TRUE(EQUAL(Date(2001, 12, 30), YesterDate(Date(2001, 12, 31))));
 
+	EXPECT_TRUE(EQUAL(Date(2001, 1, 31), YesterDate(Date(2001, 2, 1))));
 	EXPECT_TRUE(EQUAL(Date(2001, 2, 14), YesterDate(Date(2001, 2, 15))));
 	EXPECT_TRUE(EQUAL(Date(2004, 2, 27), YesterDate(Date(2004, 2, 28))));
 	EXPECT_TRUE(EQUAL(Date(2001, 2, 27), YesterDate(Date(2001, 2, 28))));
